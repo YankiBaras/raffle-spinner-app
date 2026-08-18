@@ -1,0 +1,8 @@
+venv_pdf/
+*.pyc
+__pycache__/
+
+*.csv
+*.xlsx
+*.docx
+*.pdf
