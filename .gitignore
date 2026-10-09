@@ -6,3 +6,6 @@ __pycache__/
 *.xlsx
 *.docx
 *.pdf
+
+# Built from real participant data - never commit
+raffle_insurance.html
