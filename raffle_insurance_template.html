@@ -804,9 +804,11 @@
     const PARTICIPANTS = INSURANCE_DATA.participants;
 
     // Own storage keys, so this file never touches the main raffle's state
-    // even when both are opened in the same browser.
-    const WINNERS_KEY = 'insuranceRaffleWinnersState';
-    const AUDIT_KEY = 'insuranceRaffleAuditLog';
+    // even when both are opened in the same browser. The data version (hash of
+    // the embedded data) makes a rebuilt file start with no recorded winners.
+    const DATA_VERSION = '__DATA_VERSION__';
+    const WINNERS_KEY = 'insuranceRaffleWinnersState_' + DATA_VERSION;
+    const AUDIT_KEY = 'insuranceRaffleAuditLog_' + DATA_VERSION;
 
     function shuffleArray(array) {
       for (let i = array.length - 1; i > 0; i--) {
@@ -1444,6 +1446,7 @@
     }
 
     renderPrizeGrid();
+    renderWinnersTable();
     selectPrize(1);
 
     // Log system load
